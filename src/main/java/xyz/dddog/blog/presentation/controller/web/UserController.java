@@ -11,4 +11,13 @@ public class UserController {
 	public String login() {
 		return "connect/login";
 	}
+	@RequestMapping("/loginProcessing")
+	public String loginProcessing() {
+		
+		return "/";
+	}
+	@RequestMapping("/join")
+	public String join() {
+		return "connect/join";
+	}
 }

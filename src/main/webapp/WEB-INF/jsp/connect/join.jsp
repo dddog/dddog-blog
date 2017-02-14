@@ -31,15 +31,11 @@
 					<div class="col-xs-12 col-sm-6 col-lg-6">
 						<div class="panel panel-default">
                     		<div class="panel-heading">
-                        		<h3 class="panel-title">소셜 로그인</h3>
+                        		<h3 class="panel-title">SNS로 가입하기</h3>
                         	</div>
                         	<div class="panel-body" style="padding-top:40px; min-height: 250px;">
-                        		<form action="/signin/facebook" method="POST">
-                        			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token }">
-                        			<button type="sumit" class="btn btn-facebook btn-block"><i class="fa fa-facebook fa-fw"></i> Facebook 으로 로그인</button>
-                        		</form>
-                        		<br>
-                        		<a href="/oauth/google/authenticate?redirectUrl=" provider="google" class="btn btn-google btn-block"><i class="fa fa-google fa-fw"></i> Google 로 로그인</a>
+                        		<a href="/oauth/facebook/authenticate?redirectUrl=" provider="facebook" class="btn btn-facebook btn-block"><i class="fa fa-facebook fa-fw"></i> Facebook 으로 가입하기</a>
+                        		<a href="/oauth/google/authenticate?redirectUrl=" provider="google" class="btn btn-google btn-block"><i class="fa fa-google fa-fw"></i> Google 로 가입하기</a>
                         	</div>
                         </div>
 					</div>
@@ -47,11 +43,9 @@
 					<div class="col-xs-12 col-sm-6 col-lg-6">
 						<div class="panel panel-default">
                     		<div class="panel-heading">
-                        		<h3 class="panel-title">아이디 로그인</h3>
+                        		<h3 class="panel-title">아이디로 가입하기</h3>
                         	</div>
                         	<div class="panel-body" style="padding-top:10px; min-height: 250px;">
-                        	<form action="/signin" class="form-signin form-user panel-body panel-margin" method="POST" id="loginForm" autocomplete="off">
-                        		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token }">
                         		<div class="form-group">
 	                                <label for="inputUserId">User Id</label>
 	                                <input type="text" name="username" class="form-control" id="inputUserId" placeholder="Enter User Id">
@@ -60,13 +54,20 @@
 	                                <label for="inputPassword">Password</label>
 	                                <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Enter Password">
 	                            </div>
+	                            <div class="form-group">
+	                                <label for="inputName">Nickname</label>
+	                                <input type="text" name="nickname" class="form-control" id="inputNickname" placeholder="Enter Nickname">
+	                            </div>
+	                            <div class="form-group">
+	                                <label for="inputEmail">e-mail</label>
+	                                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Enter Email">
+	                            </div>
 	                            <div class="checkbox">
 	                                <label for="remember-me">
 	                                    <input type="checkbox" name="remember-me" id="remember-me"> Remember me
 	                                </label>
 	                            </div>
 	                            <button type="submit" class="btn btn-default">Submit</button>
-	                           </form>
                         	</div>
                         </div>
 					</div>

@@ -18,7 +18,7 @@
 					<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
 				</p>
 				<div class="jumbotron">
-					<h1>안녕하세요.</h1>
+					<h1>안녕하세요.</h1> 
 					<p>Spring Boot Project - Blog</p>
 				</div>
 				<div class="row">
@@ -60,7 +60,7 @@
 
       <hr>
 
-
+	
 	<%@ include file="/WEB-INF/jspf/footer.jspf" %>
     </div><!--/.container-->
 
