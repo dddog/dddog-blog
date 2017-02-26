@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,8 +52,8 @@
                         		<h3 class="panel-title">아이디 로그인</h3>
                         	</div>
                         	<div class="panel-body" style="padding-top:10px; min-height: 250px;">
-                        	<form action="/signin" class="form-signin form-user panel-body panel-margin" method="POST" id="loginForm" autocomplete="off">
-                        		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token }">
+                        	<c:url value="/user/login" var="loginUrl"/>
+                        	<form action="${loginUrl}" class="form-signin form-user panel-body panel-margin" method="POST" id="loginForm" autocomplete="off">
                         		<div class="form-group">
 	                                <label for="inputUserId">User Id</label>
 	                                <input type="text" name="username" class="form-control" id="inputUserId" placeholder="Enter User Id">
@@ -66,7 +68,8 @@
 	                                </label>
 	                            </div>
 	                            <button type="submit" class="btn btn-default">Submit</button>
-	                           </form>
+	                            <sec:csrfInput />
+	                          </form>
                         	</div>
                         </div>
 					</div>

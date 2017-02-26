@@ -46,9 +46,10 @@
                         		<h3 class="panel-title">아이디로 가입하기</h3>
                         	</div>
                         	<div class="panel-body" style="padding-top:10px; min-height: 250px;">
+                        	<form method="post" action="/user/register">
                         		<div class="form-group">
 	                                <label for="inputUserId">User Id</label>
-	                                <input type="text" name="username" class="form-control" id="inputUserId" placeholder="Enter User Id">
+	                                <input type="text" name="userid" class="form-control" id="inputUserId" placeholder="Enter User Id">
 	                            </div>
 	                            <div class="form-group">
 	                                <label for="inputPassword">Password</label>
@@ -56,18 +57,15 @@
 	                            </div>
 	                            <div class="form-group">
 	                                <label for="inputName">Nickname</label>
-	                                <input type="text" name="nickname" class="form-control" id="inputNickname" placeholder="Enter Nickname">
+	                                <input type="text" name="nick" class="form-control" id="inputNickname" placeholder="Enter Nickname">
 	                            </div>
 	                            <div class="form-group">
 	                                <label for="inputEmail">e-mail</label>
 	                                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Enter Email">
 	                            </div>
-	                            <div class="checkbox">
-	                                <label for="remember-me">
-	                                    <input type="checkbox" name="remember-me" id="remember-me"> Remember me
-	                                </label>
-	                            </div>
-	                            <button type="submit" class="btn btn-default">Submit</button>
+	                            <button type="submit" class="btn btn-default">가입하기</button>
+	                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+	                        </form>
                         	</div>
                         </div>
 					</div>

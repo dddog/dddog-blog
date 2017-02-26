@@ -13,7 +13,11 @@ spring:
         hibernate:
             ddl-auto: update
     datasource:
-        url: jdbc:h2:file:./spring-blog
+#        url: jdbc:h2:file:./spring-blog
+        url: jdbc:mysql://localhost/dddogBlog
+        username: dddog
+        password: shin1101
+        driver-class-name: com.mysql.jdbc.Driver
     jackson:
         date-format: yyyy-MM-dd'T'HH:mm:ss.SSSXXX
         time-zone : Asia/Seoul
