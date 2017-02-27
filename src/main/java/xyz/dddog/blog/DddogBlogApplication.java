@@ -18,4 +18,9 @@ public class DddogBlogApplication {
 		return new BCryptPasswordEncoder();
 		
 	}
+	
+	@Bean(name = "uploadPath")
+	public String uploadPath() {
+	    return "d:/image/";
+	}
 }

@@ -38,6 +38,8 @@ public class Post {
 	
 	private int categoryId;
 	
+	private int hitCnt;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "categoryId", insertable = false, updatable = false)
 	private Category category;

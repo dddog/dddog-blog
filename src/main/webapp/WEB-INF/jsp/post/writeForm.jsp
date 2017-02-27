@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="/WEB-INF/jspf/head.jspf" %>
 <link rel="stylesheet" href="/webjars/summernote/0.8.2/dist/summernote.css">
 <style type="text/css">
@@ -25,7 +26,8 @@
 	<div class="container">
 
 		<div class="row row-offcanvas row-offcanvas-right">
-		
+			
+			<form id="articleForm" role="form" action="/article" method="post">
 			<div class="col-xs-12 col-sm-9">
 				<p class="pull-right visible-xs">
 					<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
@@ -69,7 +71,7 @@
 									<a href="popupMng"><button class="btn btn-primary">list</button></a>
 								</div>
 								<div class="col-xs-4 text-right">
-									<button id="save" class="btn btn-primary" onclick="save()">Save</button>
+									<button id="save" class="btn btn-primary" type="submit">Save</button>
 								</div>
 							</div>
 						</div>
@@ -77,6 +79,7 @@
 					
 		        </div><!--/row-->
 			</div><!--/.col-xs-12.col-sm-9-->
+			</form>
 			
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
 				<div class="well">
@@ -106,7 +109,6 @@
 	<script src="/webjars/summernote/0.8.2/dist/summernote.min.js"></script>
 	<script src="/webjars/summernote/0.8.2/dist/lang/summernote-ko-KR.min.js"></script>
 	<script src="/js/summernote-ext-highlight.js"></script>
-	<!-- <script src="/js/summernote-ext-codeblock.js"></script> -->
 	<script type="text/javascript">
 
 		$(document).ready(function() {
