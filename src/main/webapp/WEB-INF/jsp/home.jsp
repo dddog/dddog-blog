@@ -32,30 +32,45 @@
 		
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
 				<div class="well">
-				<h4>Blog Search</h4>
-				<div class="input-group">
-					<input type="text" class="form-control">
-					<span class="input-group-btn">
-						<button class="btn btn-default" type="button">
-							<span class="glyphicon glyphicon-search"></span>
-						</button>
-					</span>
+					<h4>Blog Search</h4>
+					<div class="input-group">
+						<input type="text" class="form-control">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
+						</span>
+					</div>
+					<!-- /.input-group -->
 				</div>
-				<!-- /.input-group -->
-			</div>
-			<div class="list-group">
-				<a href="#" class="list-group-item active">Link</a>
-				<a href="#" class="list-group-item">Link</a>
-				<a href="#" class="list-group-item">Link</a>
-				<a href="#" class="list-group-item">Link</a>
-				<a href="#" class="list-group-item">Link</a>
-				<a href="#" class="list-group-item">Link</a>
-				<a href="#" class="list-group-item">Link</a>
-				<a href="#" class="list-group-item">Link</a>
-				<a href="#" class="list-group-item">Link</a>
-				<a href="#" class="list-group-item">Link</a>
-			</div>
-		</div><!--/.sidebar-offcanvas-->
+				<div class="well">
+					<a href="/post/write">
+						<button class="btn btn-default" type="button">Write</button>
+					</a>
+				</div>
+				<%-- <sec:authorize access="isAuthenticated()">
+					<sec:authorize access="hasAnyRole('ROLE_ADMIN')">
+						<div class="well">
+							<a href="/post/write">
+								<button class="btn btn-default" type="button">Write</button>
+							</a>
+						</div>
+					</sec:authorize>
+				</sec:authorize> --%>
+			
+				<div class="list-group">
+					<a href="#" class="list-group-item active">Link</a>
+					<a href="#" class="list-group-item">Link</a>
+					<a href="#" class="list-group-item">Link</a>
+					<a href="#" class="list-group-item">Link</a>
+					<a href="#" class="list-group-item">Link</a>
+					<a href="#" class="list-group-item">Link</a>
+					<a href="#" class="list-group-item">Link</a>
+					<a href="#" class="list-group-item">Link</a>
+					<a href="#" class="list-group-item">Link</a>
+					<a href="#" class="list-group-item">Link</a>
+				</div>
+			</div><!--/.sidebar-offcanvas-->
 		</div><!--/row-->
 
       <hr>
