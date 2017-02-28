@@ -26,12 +26,12 @@ public class ImageController {
 	@Autowired
     ImageService imageService;
     
-    /*@GetMapping("/")
+    /*@GetMapping("/image")
     public String listUploadedFiles(Model model) throws IOException {
         
         model.addAttribute("files", imageService.loadAll().collect(Collectors.toList()));
         
-        return "index";
+        return "/";
     }*/
     
     @GetMapping("/image/{fileId}")
@@ -61,8 +61,6 @@ public class ImageController {
     
     @RequestMapping(value = "/image", method = RequestMethod.POST)
     public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file) {
-    	log.debug("handleFileUpload {}", this.getClass().getName());
-    	System.out.println("handleFileUpload>>>" + this.getClass().getName());
         try {
             UploadFile uploadedFile = imageService.store(file);
             return ResponseEntity.ok().body("/image/" + uploadedFile.getId());

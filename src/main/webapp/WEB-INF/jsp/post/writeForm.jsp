@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +28,7 @@
 
 		<div class="row row-offcanvas row-offcanvas-right">
 			
-			<form id="articleForm" role="form" action="/article" method="post">
+			<form id="writePostForm" role="form" action="/post/write" method="post">
 			<div class="col-xs-12 col-sm-9">
 				<p class="pull-right visible-xs">
 					<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
@@ -52,8 +53,10 @@
 								<div class="input-group">
 									<span class="input-group-addon" id="basic-addon1">카테고리</span>
 									<select class="btn btn-default" id="pflag" style="width:100%;">
-										<option value="1">사용</option>
-										<option value="0">미사용</option>
+										<c:forEach items="${categoryMap}" var="_category">
+											<option value="${_category.key }">${_category.value }</option>
+										</c:forEach>
+										<!-- <option value="0">미사용</option> -->
 									</select>
 								</div>
 							</div>
@@ -79,6 +82,7 @@
 					
 		        </div><!--/row-->
 			</div><!--/.col-xs-12.col-sm-9-->
+				<sec:csrfInput />
 			</form>
 			
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
@@ -143,8 +147,9 @@
 		
 
 		function sendFile(file, el) {
-			var form_data = new FormData();
+			var form_data = new FormData(jQuery('form')[0]);
 			form_data.append('file', file);
+			
 			$.ajax({
 				data : form_data,
 				type : "POST",

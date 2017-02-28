@@ -24,7 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.formLogin()
-				.loginPage("/user/login").permitAll().failureUrl("/")
+				.loginPage("/user/login").permitAll().failureUrl("/user/login")
 			.and()
 				.logout()
 					.logoutUrl("/user/logout")
@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 					.logoutSuccessUrl("/")
 			.and()
 				.authorizeRequests()
-					.antMatchers("/**/write*", "/**/edit*", "/**/delete*", "/image").hasRole("ADMIN")
+					.antMatchers("/**/write*", "/**/edit*", "/**/delete*").hasRole("ADMIN")
 					.antMatchers("/**").permitAll();
 	}
 

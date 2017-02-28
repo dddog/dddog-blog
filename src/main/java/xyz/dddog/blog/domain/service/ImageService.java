@@ -41,8 +41,8 @@ public class ImageService {
 		return files.stream().map(file -> file.getId());
 	}
 
-	public UploadFile load(int fileId) {
-		return fileRepository.findOne(fileId);
+	public UploadFile load(long fileId) {
+		return fileRepository.findOneById(fileId);
 	}
 
 	public Resource loadAsResource(String fileName) throws Exception {

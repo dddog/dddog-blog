@@ -6,4 +6,5 @@ import xyz.dddog.blog.domain.model.Entity.UploadFile;
 
 public interface FileRepository extends JpaRepository<UploadFile, Integer> {
     public UploadFile findOneByFileName(String fileName);
+    public UploadFile findOneById(long id);
 }
