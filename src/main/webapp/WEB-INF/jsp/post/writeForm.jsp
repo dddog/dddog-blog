@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="/WEB-INF/jspf/head.jspf" %>
 <link rel="stylesheet" href="/webjars/summernote/0.8.2/dist/summernote.css">
+<link rel="stylesheet" href="/css/bootstrap-tagsinput.css">
 <style type="text/css">
 .btn-facebook, .btn-facebook:visited {
     background-color: #5975b1;
@@ -63,6 +64,10 @@
 						</div>
 						<div class="panel-body">
 							<div class="summernote"></div>
+							<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">Tag</span>
+								<input type="text" value="" data-role="tagsinput" />
+							</div>
 						</div>
 						
 						<div class="panel-footer ">
@@ -71,7 +76,7 @@
 									<button id="preview" class="btn btn-primary" onclick="preview()" data-toggle="modal" data-target="#myModal">Preview</button>
 								</div>
 								<div class="col-xs-4 text-center">
-									<a href="popupMng"><button class="btn btn-primary">list</button></a>
+									<a href="/post"><button class="btn btn-primary">list</button></a>
 								</div>
 								<div class="col-xs-4 text-right">
 									<button id="save" class="btn btn-primary" type="submit">Save</button>
@@ -113,6 +118,7 @@
 	<script src="/webjars/summernote/0.8.2/dist/summernote.min.js"></script>
 	<script src="/webjars/summernote/0.8.2/dist/lang/summernote-ko-KR.min.js"></script>
 	<script src="/js/summernote-ext-highlight.js"></script>
+	<script src="/js/bootstrap-tagsinput.js"></script>
 	<script type="text/javascript">
 
 		$(document).ready(function() {

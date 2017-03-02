@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserSession {
 	String providerUserId;
-	String imageUrl;
+	String email;
 	String displayName;
 }
