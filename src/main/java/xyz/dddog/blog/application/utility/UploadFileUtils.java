@@ -15,6 +15,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class UploadFileUtils {
     
     private static final Logger logger = LoggerFactory.getLogger(UploadFileUtils.class);
@@ -27,7 +30,6 @@ public class UploadFileUtils {
      * @throws IOException
      */
     public static String fileSave(String uploadPath, MultipartFile file) throws IllegalStateException, IOException {
-        
         File uploadPathDir = new File(uploadPath);
         
         if ( !uploadPathDir.exists() ){
@@ -73,7 +75,7 @@ public class UploadFileUtils {
         Calendar cal = Calendar.getInstance();
         
         String yearPath = File.separator + cal.get(Calendar.YEAR);
-        String monthPath = yearPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.MONTH));
+        String monthPath = yearPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.MONTH)+1);
         String datePath = monthPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.DATE));
         
         makeDir(uploadPath, yearPath, monthPath, datePath);
@@ -85,7 +87,6 @@ public class UploadFileUtils {
     
     private static void makeDir(String uploadPath, String... paths) {
         
-        System.out.println(paths[paths.length - 1] + " : " + new File(paths[paths.length - 1]).exists());
         if (new File(paths[paths.length - 1]).exists()) {
             return;
         }
