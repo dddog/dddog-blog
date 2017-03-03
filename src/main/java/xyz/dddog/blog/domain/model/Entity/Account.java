@@ -18,6 +18,8 @@ public class Account {
 	@Column(unique=true)
 	private String userid;
 	
+	private String name;
+	
 	private String password;
 	
 	private String role;

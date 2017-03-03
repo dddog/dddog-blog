@@ -26,7 +26,6 @@ public class UserSessionInterceptor extends HandlerInterceptorAdapter {
 
 		try {
 			account = accountRepository.findByUserid(authentication.getName());
-			System.out.println("Account 생성 성공!!");
 		} catch (Exception e) {
 			account = null;
 		}
