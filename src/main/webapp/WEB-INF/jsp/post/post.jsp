@@ -30,7 +30,59 @@
 
 		<div class="row row-offcanvas row-offcanvas-right">
 			
+			<div class="col-lg-8">
 			
+				<!-- Title -->
+                <h1>${post.title }</h1>
+                
+                <!-- Sub Title -->
+                <h3>${post.subtitle }</h3>
+                
+                <p class="lead text-right">
+                    
+                </p>
+                <hr>
+                <p class="text-right">
+                	by <a href="#">${post.userid }</a> &nbsp;&nbsp;&nbsp;&nbsp; <span class="glyphicon glyphicon-time"></span> <c:out value="${post.regDate }"/>
+                </p>
+                <hr>
+                
+                <div class="post-content">
+		            ${post.content }
+                </div>
+                
+                <hr>
+                <div class="well">
+                    <h4>Leave a Comment:</h4>
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+			</div>
+			
+			<div class="col-md-4" id="sidebar">
+				<div class="well">
+					<h4>Blog Search</h4>
+					<div class="input-group">
+						<input type="text" class="form-control">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
+						</span>
+					</div>
+					<!-- /.input-group -->
+				</div>
+				<div class="list-group">
+					<a href="#" class="list-group-item active">Link</a>
+					<a href="#" class="list-group-item">Link</a>
+					<a href="#" class="list-group-item">Link</a>
+					<a href="#" class="list-group-item">Link</a>
+				</div>
+			</div><!--/.sidebar-offcanvas-->
 		</div><!--/row-->
 
       <hr>
