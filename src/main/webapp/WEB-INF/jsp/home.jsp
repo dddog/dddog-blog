@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,11 +23,13 @@
 					<p>Spring Boot Project - Blog</p>
 				</div>
 				<div class="row">
-					<div class="col-xs-6 col-lg-4">
-						<h2>Heading</h2>
-						<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-						<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-					</div><!--/.col-xs-6.col-lg-4-->
+					<c:forEach items="${postPage.content }" var="post">
+						<div class="col-xs-6 col-lg-4">
+							<h2>${post.title }</h2>
+							<p>${post.subtitle }</p>
+							<p><a class="btn btn-default" href="/post/${post.id }" role="button">View details &raquo;</a></p>
+						</div><!--/.col-xs-6.col-lg-4-->
+					</c:forEach>
 		        </div><!--/row-->
 			</div><!--/.col-xs-12.col-sm-9-->
 		
@@ -43,12 +46,12 @@
 					</div>
 					<!-- /.input-group -->
 				</div>
-				<div class="well">
+				<!-- <div class="well">
 					<a href="/post/write">
 						<button class="btn btn-default" type="button">Write</button>
 					</a>
-				</div>
-				<%-- <sec:authorize access="isAuthenticated()">
+				</div> -->
+				<sec:authorize access="isAuthenticated()">
 					<sec:authorize access="hasAnyRole('ROLE_ADMIN')">
 						<div class="well">
 							<a href="/post/write">
@@ -56,19 +59,15 @@
 							</a>
 						</div>
 					</sec:authorize>
-				</sec:authorize> --%>
+				</sec:authorize>
 			
-				<div class="list-group">
-					<a href="#" class="list-group-item active">Link</a>
-					<a href="#" class="list-group-item">Link</a>
-					<a href="#" class="list-group-item">Link</a>
-					<a href="#" class="list-group-item">Link</a>
-					<a href="#" class="list-group-item">Link</a>
-					<a href="#" class="list-group-item">Link</a>
-					<a href="#" class="list-group-item">Link</a>
-					<a href="#" class="list-group-item">Link</a>
-					<a href="#" class="list-group-item">Link</a>
-					<a href="#" class="list-group-item">Link</a>
+				<div class="well">
+					<h4>Category</h4>
+					<div class="list-group">
+						<c:forEach items="${categoryList }" var="c">
+							<a href="/category/${c.id }/post/list" class="list-group-item">${c.name }</a>
+						</c:forEach>
+					</div>
 				</div>
 			</div><!--/.sidebar-offcanvas-->
 		</div><!--/row-->

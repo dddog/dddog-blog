@@ -10,16 +10,6 @@
 <link rel="stylesheet" href="/webjars/summernote/0.8.2/dist/summernote.css">
 <link rel="stylesheet" href="/css/bootstrap-tagsinput.css">
 <link rel="stylesheet" href="/css/style.css">
-<style type="text/css">
-.btn-facebook, .btn-facebook:visited {
-    background-color: #5975b1;
-    color: #fff;
-}
-.btn-google, .btn-google:visited {
-    background-color: #df4a32;
-    color: #fff;
-}
-</style>
 <title>login - dddog blog</title>
 </head>
 
@@ -31,36 +21,20 @@
 		<div class="row row-offcanvas row-offcanvas-right">
 			
 			<div class="col-lg-8">
-			
-				<!-- Title -->
-                <h1>${post.title }</h1>
-                
-                <!-- Sub Title -->
-                <h3>${post.subtitle }</h3>
-                
-                <p class="lead text-right">
-                    
-                </p>
-                <hr>
-                <p class="text-right">
-                	by <a href="#">${post.userid }</a> &nbsp;&nbsp;&nbsp;&nbsp; <span class="glyphicon glyphicon-time"></span> <c:out value="${post.regDate }"/>
-                </p>
-                <hr>
-                
-                <div class="post-content">
-		            ${post.content }
-                </div>
-                
-                <hr>
-                <div class="well">
-                    <h4>Leave a Comment:</h4>
-                    <form role="form">
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
+				<c:forEach items="${postPage.content }" var="post">
+					<div class="post-preview">
+						<a href="/post/${post.id}">
+							<h2 class="post-title">
+								<c:out value="${post.title}" escapeXml="true"></c:out>
+							</h2>
+							<h3 class="post-subtitle">
+								<c:out value="${post.subtitle}" escapeXml="true"></c:out>
+							</h3>
+						</a>
+						<p class="post-meta">Posted by <a href="#">${post.name}</a> in <a href="/category/${post.category.id}/post/list"><c:out value="${post.category.name}" escapeXml="true" /></a> on ${post.regDate}</p>
+					</div>
+					<hr>
+				</c:forEach>
 			</div>
 			
 			<div class="col-md-4" id="sidebar">
@@ -80,7 +54,14 @@
 					<h4>Category</h4>
 					<div class="list-group">
 						<c:forEach items="${categoryList }" var="c">
-							<a href="/category/${c.id }/post/list" class="list-group-item">${c.name }</a>
+							<c:choose>
+								<c:when test="${activeCategoryId eq c.id }">
+									<a href="/category/${c.id }/post/list" class="list-group-item active">${c.name }</a>
+								</c:when>
+								<c:otherwise>
+									<a href="/category/${c.id }/post/list" class="list-group-item">${c.name }</a>
+								</c:otherwise>
+							</c:choose>
 						</c:forEach>
 					</div>
 				</div>
