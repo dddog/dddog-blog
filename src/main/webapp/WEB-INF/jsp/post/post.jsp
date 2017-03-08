@@ -38,9 +38,6 @@
                 <!-- Sub Title -->
                 <h3>${post.subtitle }</h3>
                 
-                <p class="lead text-right">
-                    
-                </p>
                 <hr>
                 <p class="text-right">
                 	by <a href="#">${post.userid }</a> &nbsp;&nbsp;&nbsp;&nbsp; <span class="glyphicon glyphicon-time"></span> <c:out value="${post.regDate }"/>
@@ -51,6 +48,13 @@
 		            ${post.content }
                 </div>
                 
+                <div class="tag-view">
+                	<c:forEach items="${post.postTagList }" var="postTag">
+                		<a href="/tag/<c:out value="${postTag.tag.name}" escapeXml="true" />/post/list">
+							<span class="label label-default"><c:out value="${postTag.tag.name}" escapeXml="true" /></span>
+						</a>
+                	</c:forEach>
+                </div>
                 <hr>
                 <div class="well">
                     <h4>Leave a Comment:</h4>
@@ -76,6 +80,15 @@
 					</div>
 					<!-- /.input-group -->
 				</div>
+				<sec:authorize access="isAuthenticated()">
+					<sec:authorize access="hasAnyRole('ROLE_ADMIN')">
+						<div class="well">
+							<a href="/post/write">
+								<button class="btn btn-default" type="button">Write</button>
+							</a>
+						</div>
+					</sec:authorize>
+				</sec:authorize>
 				<div class="well">
 					<h4>Category</h4>
 					<div class="list-group">

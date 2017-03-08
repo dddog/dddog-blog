@@ -50,6 +50,15 @@
 					</div>
 					<!-- /.input-group -->
 				</div>
+				<sec:authorize access="isAuthenticated()">
+					<sec:authorize access="hasAnyRole('ROLE_ADMIN')">
+						<div class="well">
+							<a href="/post/write">
+								<button class="btn btn-default" type="button">Write</button>
+							</a>
+						</div>
+					</sec:authorize>
+				</sec:authorize>
 				<div class="well">
 					<h4>Category</h4>
 					<div class="list-group">

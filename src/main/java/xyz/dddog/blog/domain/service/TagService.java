@@ -36,7 +36,7 @@ public class TagService {
 
 		log.debug("postTagNames = {}", postTagNames);
 		
-		StringTokenizer tokenTag = new StringTokenizer(postTagNames.trim().replaceAll("[ ]+", " "), " ");
+		StringTokenizer tokenTag = new StringTokenizer(postTagNames.trim().replaceAll("[ ]+", " "), ",");
 
 		HashSet<String> hashSet = new HashSet<>();
 

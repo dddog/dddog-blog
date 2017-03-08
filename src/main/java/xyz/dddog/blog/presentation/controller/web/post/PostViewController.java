@@ -38,8 +38,8 @@ public class PostViewController {
 		return "post/post";
 	}
 	
-	@RequestMapping(value = { "/post/list", "/category/{categoryId}/post/list" })
-	public String list(Model model, @PathVariable Optional<Integer> categoryId) {
+	@RequestMapping(value = { "/post/list", "/category/{categoryId}/post/list", "tag/{tagName}/post/list" })
+	public String list(Model model, @PathVariable Optional<Integer> categoryId, @PathVariable Optional<String> tagName) {
 		
 		Page<Post> postPage;
 		Pageable pageable = new PageRequest(0, 6, Direction.DESC, "id");
@@ -49,6 +49,8 @@ public class PostViewController {
 		if( categoryId.isPresent() ) {
 			activeCategory = categoryId.get();
 			postPage = postRepository.findByCategoryId(categoryId.get(), pageable);
+		} else if( tagName.isPresent() ) {
+			postPage = postRepository.findByPostTagListTagName(tagName.get(), pageable);
 		} else {
 			postPage = postRepository.findAll(pageable);
 		}
