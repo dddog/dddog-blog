@@ -48,6 +48,7 @@
 		            ${post.content }
                 </div>
                 
+                
                 <div class="tag-view">
                 	<c:forEach items="${post.postTagList }" var="postTag">
                 		<a href="/tag/<c:out value="${postTag.tag.name}" escapeXml="true" />/post/list">
@@ -55,6 +56,19 @@
 						</a>
                 	</c:forEach>
                 </div>
+                
+                <c:if test="${_USER!=null && _USER.providerUserId == post.userid}">
+				<br>
+				<p class="text-right">
+					<a href="/post/${post.id}/edit">
+						<button type="button" class="btn btn-warning">Edit</button>
+					</a>
+					<a href="/post/${post.id}/delete" onclick="if(!confirm('진심이에요?')){return false;}">
+						<button type="button" class="btn btn-danger">Delete</button>
+					</a>
+				</p>
+				</c:if>
+                
                 <hr>
                 <div class="well">
                     <h4>Leave a Comment:</h4>
